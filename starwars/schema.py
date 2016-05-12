@@ -165,26 +165,6 @@ class Query(graphene.ObjectType):
     def resolve_viewer(self, *args, **kwargs):
         return self
 
-"""
-Sample mutation:
-mutation myFirstMutation {
-    createHero($input: CreateHeroInput!) {
-        hero {
-            name
-        },
-        ok
-    }
-}
-
-Parameters:
-{
-    "input": {
-        "clientMutationId": "<anything you want here>",
-        "name": "Finn",
-        "homeworld_id": 1
-    }
-}
-"""
 class CreateHero(relay.ClientIDMutation):
 
     # Required input from mutation query
