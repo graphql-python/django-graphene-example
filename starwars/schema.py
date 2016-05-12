@@ -167,6 +167,7 @@ class Query(graphene.ObjectType):
     def resolve_viewer(self, *args, **kwargs):
         return self
 
+
 class CreateHero(relay.ClientIDMutation):
 
     # Required input from mutation query
