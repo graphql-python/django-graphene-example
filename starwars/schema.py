@@ -170,15 +170,18 @@ class Query(graphene.ObjectType):
 
 class CreateHero(relay.ClientIDMutation):
 
+    # Required input from mutation query
     class Input:
         name = graphene.String(required=True)
         homeworld_id = graphene.String(required=True)
 
+    # Payload to return after mutation
     hero = graphene.Field(Hero)
     ok = graphene.Boolean()
 
     @classmethod
     def mutate_and_get_payload(cls, input, info):
+        # Get data from mutation query
         name = input.get('name')
         homeworld_id = input.get('homeworld_id')
         assert homeworld_id, 'homeworld_id must be not null'
@@ -191,7 +194,8 @@ class CreateHero(relay.ClientIDMutation):
                 homeworld_id = resolved.id
             except:
                 raise Exception("Received wrong Planet id: {}".format(homeworld_id))
-
+                
+        # Creation of new database entry
         homeworld = Planet._meta.model.objects.get(id=homeworld_id)
         hero = Hero._meta.model(name=name, homeworld=homeworld)
         hero.save()
