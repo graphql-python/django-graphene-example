@@ -190,7 +190,7 @@ class CreateHero(relay.ClientIDMutation):
         except ValueError:
             try:
                 resolved = from_global_id(homeworld_id)
-                resolved.type.lower == 'planet', 'The homeworld should be a Planet, but found {}'.format(resolved.type)
+                assert resolved.type.lower == 'planet', 'The homeworld should be a Planet, but found {}'.format(resolved.type)
                 homeworld_id = resolved.id
             except:
                 raise Exception("Received wrong Planet id: {}".format(homeworld_id))
