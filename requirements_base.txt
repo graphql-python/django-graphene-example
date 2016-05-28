@@ -3,3 +3,4 @@ graphene[django]==0.10.0
 django-graphiql==0.4.4
 django-filter==0.12.0
 django-environ==0.4.0
+psycopg2==2.6.1
