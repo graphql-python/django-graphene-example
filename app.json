@@ -1,0 +1,6 @@
+{
+  "name": "SWAPI Graphene",
+  "description": "GraphQL Starwars Api using Graphene and Django",
+  "repository": "https://github.com/graphql-python/swapi-graphene",
+  "keywords": ["SWAPI", "Graphene", "GraphQL"]
+}

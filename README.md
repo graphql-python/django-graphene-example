@@ -46,6 +46,6 @@ Open your browser and visit [localhost:8080](http://localhost:8080/) et voilá!
 
 To get your own GraphQL Starwars example running on Heroku, click the button below:
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/graphql-python/swapi-graphene)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
 Fill out the form, and you should be cooking with gas in a few seconds.
