@@ -3,4 +3,6 @@
 # The production required packages
 
 gunicorn==19.3.0
-MySQL-python
+mysqlclient==1.3.12
+django-graphiql==0.4.4
+django-extensions==2.0.6
