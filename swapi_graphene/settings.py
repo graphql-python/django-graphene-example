@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'django_graphiql',
     # 'debug_toolbar',
     'graphene_django',
+    'django_extensions',    
     'starwars',
 )
 
