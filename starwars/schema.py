@@ -1,14 +1,16 @@
 import sys
+from importlib import reload
+
 reload(sys)
-sys.setdefaultencoding('utf-8')
+# sys.setdefaultencoding('utf-8')
 
 import graphene
-from graphene import resolve_only_args, Node
+from graphene import Node
 from graphene_django import DjangoObjectType
 from graphene_django.filter import DjangoFilterConnectionField
 from graphene_django.debug import DjangoDebug
 
-import models
+from . import models
 
 
 def connection_for_type(_type):
@@ -42,11 +44,11 @@ class Planet(DjangoObjectType):
     climates = graphene.List(graphene.String)
     terrains = graphene.List(graphene.String)
 
-    @resolve_only_args
+    # @resolve_only_args
     def resolve_climates(self):
         return [c.strip() for c in self.climate.split(',')]
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_terrains(self):
         return [c.strip() for c in self.terrain.split(',')]
 
@@ -62,7 +64,7 @@ Planet.Connection = connection_for_type(Planet)
 class Film(DjangoObjectType):
     producers = graphene.List(graphene.String)
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_producers(self):
         return [c.strip() for c in self.producer.split(',')]
 
@@ -82,15 +84,15 @@ class Specie(DjangoObjectType):
     hair_colors = graphene.List(graphene.String)
     skin_colors = graphene.List(graphene.String)
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_eye_colors(self):
         return [c.strip() for c in self.eye_colors.split(',')]
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_hair_colors(self):
         return [c.strip() for c in self.hair_colors.split(',')]
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_skin_colors(self):
         return [c.strip() for c in self.skin_colors.split(',')]
 
@@ -107,7 +109,7 @@ class Vehicle(DjangoObjectType):
     '''A single transport craft that does not have hyperdrive capability'''
     manufacturers = graphene.List(graphene.String)
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_manufacturers(self):
         return [c.strip() for c in self.manufacturer.split(',')]
 
@@ -136,11 +138,11 @@ class Starship(DjangoObjectType):
     '''A single transport craft that has hyperdrive capability.'''
     manufacturers = graphene.List(graphene.String)
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_manufacturers(self):
         return [c.strip() for c in self.manufacturer.split(',')]
 
-    @resolve_only_args
+    #@resolve_only_args
     def resolve_max_atmosphering_speed(self):
         if self.max_atmosphering_speed == 'n/a':
             return None
