@@ -33,9 +33,9 @@ def static(prefix, view=serve, **kwargs):
     ]
 
 backend = GraphQLDeciderBackend([
-    # GraphQLCachedBackend(GraphQLQuiverCloudBackend(
-    #     'https://******@api.graphql-quiver.com'
-    # )),
+    GraphQLCachedBackend(GraphQLQuiverCloudBackend(
+        'https://******@api.graphql-quiver.com'
+    )),
     GraphQLCoreBackend()
 ])
 
